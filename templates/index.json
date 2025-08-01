@@ -3,7 +3,7 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "heading": "Welcome to our store",
+        "heading": "Welcome to Paramount store",
         "subheading": "Discover amazing products and exceptional quality",
         "button_text": "Shop Now",
         "button_url": "/collections/all",
