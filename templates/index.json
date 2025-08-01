@@ -28,7 +28,7 @@
         "description": "Check out our most popular items",
         "collection": "frontpage",
         "products_to_show": 4,
-        "columns_desktop": 4,
+        "columns_desktop": 2,
         "show_view_all": true
       }
     }
