@@ -4,7 +4,7 @@
       "type": "hero",
       "settings": {
         "heading": "Welcome to Paramount store",
-        "subheading": "Discover exceptional quality amazing products",
+        "subheading": "Discover amazing products and exceptional quality",
         "button_text": "Shop Now",
         "button_url": "/collections/all",
         "layout": "medium",
