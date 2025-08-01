@@ -28,6 +28,8 @@
 
     {% render 'meta-tags' %}
 
+    {{ content_for_header }}
+
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 
     <!-- CSS Custom Properties for Design System -->

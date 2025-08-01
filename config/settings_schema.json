@@ -1,11 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Dynamic Sections Theme",
+    "theme_name": "Paramount",
     "theme_version": "1.0.0",
-    "theme_author": "Your Name",
-    "theme_documentation_url": "",
-    "theme_support_url": ""
+    "theme_author": "Paramount WP",
+    "theme_documentation_url": "https:\/\/shopifytheme.paramountwp.com\/documentation\/",
+    "theme_support_url": "https:\/\/shopifytheme.paramountwp.com\/support\/"
   },
   {
     "name": "Typography",
@@ -16,8 +16,8 @@
       },
       {
         "type": "font_picker",
-        "id": "heading_font",
-        "default": "assistant",
+        "id": "type_header_font",
+        "default": "helvetica",
         "label": "Heading font"
       },
       {
@@ -26,9 +26,8 @@
         "min": 1.1,
         "max": 1.8,
         "step": 0.1,
-        "unit": "x",
         "label": "Heading scale",
-        "default": 1.25
+        "default": 1.3
       },
       {
         "type": "header",
@@ -37,7 +36,7 @@
       {
         "type": "font_picker",
         "id": "body_font",
-        "default": "assistant",
+        "default": "helvetica",
         "label": "Body font"
       },
       {
