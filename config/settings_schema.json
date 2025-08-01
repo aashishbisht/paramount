@@ -17,7 +17,7 @@
       {
         "type": "font_picker",
         "id": "heading_font",
-        "default": "helvetica",
+        "default": "sans-serif",
         "label": "Heading font"
       },
       {
@@ -37,7 +37,7 @@
       {
         "type": "font_picker",
         "id": "body_font",
-        "default": "helvetica",
+        "default": "sans-serif",
         "label": "Body font"
       },
       {
