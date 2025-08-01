@@ -1,0 +1,171 @@
+{%- comment -%}
+  DEPENDENCIES:
+  - Requires: theme.css for utilities and design system
+  - Loads: sections-core.css for hero-specific styles
+  - Uses: Global theme settings for colors, typography
+{%- endcomment -%}
+
+{%- liquid
+  assign heading = section.settings.heading
+  assign subheading = section.settings.subheading
+  assign button_text = section.settings.button_text
+  assign button_url = section.settings.button_url
+  assign image = section.settings.image
+  assign layout = section.settings.layout
+  assign text_alignment = section.settings.text_alignment
+  assign overlay_opacity = section.settings.overlay_opacity
+-%}
+
+<section class="hero hero--{{ layout }} hero--{{ text_alignment }}" data-section-id="{{ section.id }}">
+  {%- if image != blank -%}
+    <div class="hero__media">
+      <img
+        srcset="
+          {%- if image.width >= 375 -%}{{ image | image_url: width: 375 }} 375w,{%- endif -%}
+          {%- if image.width >= 750 -%}{{ image | image_url: width: 750 }} 750w,{%- endif -%}
+          {%- if image.width >= 1100 -%}{{ image | image_url: width: 1100 }} 1100w,{%- endif -%}
+          {%- if image.width >= 1500 -%}{{ image | image_url: width: 1500 }} 1500w,{%- endif -%}
+          {%- if image.width >= 1780 -%}{{ image | image_url: width: 1780 }} 1780w,{%- endif -%}
+          {%- if image.width >= 2000 -%}{{ image | image_url: width: 2000 }} 2000w,{%- endif -%}
+          {{ image | image_url }} {{ image.width }}w"
+        src="{{ image | image_url: width: 1500 }}"
+        sizes="100vw"
+        alt="{{ image.alt | escape }}"
+        class="hero__image"
+        width="{{ image.width }}"
+        height="{{ image.height }}"
+        loading="eager"
+      >
+      {%- if overlay_opacity > 0 -%}
+        <div class="hero__overlay" style="opacity: {{ overlay_opacity | divided_by: 100.0 }}"></div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <div class="hero__content">
+    <div class="container">
+      <div class="hero__text">
+        {%- if heading != blank -%}
+          <h1 class="hero__heading">{{ heading | escape }}</h1>
+        {%- endif -%}
+        
+        {%- if subheading != blank -%}
+          <p class="hero__subheading">{{ subheading | escape }}</p>
+        {%- endif -%}
+        
+        {%- if button_text != blank and button_url != blank -%}
+          <div class="hero__button-wrapper">
+            <a href="{{ button_url }}" class="btn btn--primary btn--large hero__button">
+              {{ button_text | escape }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Welcome to our store",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "default": "Discover amazing products and exceptional quality",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "default": "Shop Now",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Image overlay opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "full-height",
+          "label": "Full height"
+        },
+        {
+          "value": "medium",
+          "label": "Medium height"
+        },
+        {
+          "value": "compact",
+          "label": "Compact"
+        }
+      ],
+      "default": "medium",
+      "label": "Section height"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Text alignment"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

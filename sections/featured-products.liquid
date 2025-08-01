@@ -1,0 +1,122 @@
+{%- comment -%}
+  DEPENDENCIES:
+  - Requires: theme.css for utilities and design system
+  - Loads: sections-product.css for product-specific styles
+  - Uses: Product card snippet for consistency
+{%- endcomment -%}
+
+{%- liquid
+  assign heading = section.settings.heading
+  assign description = section.settings.description
+  assign collection = collections[section.settings.collection]
+  assign products_to_show = section.settings.products_to_show
+  assign columns_desktop = section.settings.columns_desktop
+  assign show_view_all = section.settings.show_view_all
+-%}
+
+<section class="featured-products section" data-section-id="{{ section.id }}">
+  <div class="container">
+    {%- if heading != blank or description != blank -%}
+      <div class="featured-products__header">
+        {%- if heading != blank -%}
+          <h2 class="featured-products__title">{{ heading | escape }}</h2>
+        {%- endif -%}
+        
+        {%- if description != blank -%}
+          <p class="featured-products__description">{{ description | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if collection != blank and collection.products.size > 0 -%}
+      <div class="featured-products__grid grid--{{ columns_desktop }}-col">
+        {%- for product in collection.products limit: products_to_show -%}
+          <div class="featured-products__item">
+            {% render 'product-card', product: product %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if show_view_all and collection.products.size > products_to_show -%}
+        <div class="featured-products__footer">
+          <a href="{{ collection.url }}" class="btn btn--outline">
+            {{ 'sections.featured_collection.view_all' | t }}
+          </a>
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <div class="featured-products__placeholder">
+        <div class="featured-products__grid grid--{{ columns_desktop }}-col">
+          {%- for i in (1..products_to_show) -%}
+            <div class="featured-products__item">
+              {% render 'product-card-placeholder' %}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured products",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Featured products",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "Number of products to show"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "Show 'View all' button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured products"
+    }
+  ]
+}
+{% endschema %}

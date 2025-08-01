@@ -1,0 +1,184 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Dynamic Sections Theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Your Name",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Headings"
+      },
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "default": "assistant",
+        "label": "Heading font"
+      },
+      {
+        "type": "range",
+        "id": "heading_scale",
+        "min": 1.1,
+        "max": 1.8,
+        "step": 0.1,
+        "unit": "x",
+        "label": "Heading scale",
+        "default": 1.25
+      },
+      {
+        "type": "header",
+        "content": "Body text"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "default": "assistant",
+        "label": "Body font"
+      },
+      {
+        "type": "range",
+        "id": "body_font_size",
+        "min": 14,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Body font size",
+        "default": 16
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Primary colors"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary",
+        "default": "#2563eb"
+      },
+      {
+        "type": "color",
+        "id": "color_primary_hover",
+        "label": "Primary hover",
+        "default": "#1d4ed8"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary",
+        "default": "#64748b"
+      },
+      {
+        "type": "header",
+        "content": "Text colors"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#1f2937"
+      },
+      {
+        "type": "color",
+        "id": "color_text_light",
+        "label": "Light text",
+        "default": "#6b7280"
+      },
+      {
+        "type": "header",
+        "content": "Background colors"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_background_secondary",
+        "label": "Secondary background",
+        "default": "#f9fafb"
+      }
+    ]
+  },
+  {
+    "name": "Spacing",
+    "settings": [
+      {
+        "type": "range",
+        "id": "section_padding_desktop",
+        "min": 40,
+        "max": 120,
+        "step": 8,
+        "unit": "px",
+        "label": "Section padding (desktop)",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "section_padding_mobile",
+        "min": 20,
+        "max": 80,
+        "step": 4,
+        "unit": "px",
+        "label": "Section padding (mobile)",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "container_max_width",
+        "min": 1000,
+        "max": 1400,
+        "step": 20,
+        "unit": "px",
+        "label": "Container max width",
+        "default": 1200
+      }
+    ]
+  },
+  {
+    "name": "Buttons",
+    "settings": [
+      {
+        "type": "select",
+        "id": "button_style",
+        "label": "Button style",
+        "options": [
+          {
+            "value": "solid",
+            "label": "Solid"
+          },
+          {
+            "value": "outline",
+            "label": "Outline"
+          },
+          {
+            "value": "ghost",
+            "label": "Ghost"
+          }
+        ],
+        "default": "solid"
+      },
+      {
+        "type": "range",
+        "id": "button_border_radius",
+        "min": 0,
+        "max": 50,
+        "step": 2,
+        "unit": "px",
+        "label": "Button border radius",
+        "default": 6
+      }
+    ]
+  }
+]
